@@ -1,6 +1,0 @@
-Download CMIP6
-https://esgf-node.llnl.gov/search/cmip6/
-
-https://esgf.github.io/esgf-user-support/user_guide.html
-chmod 750 wget*.sh
-nohup wget-xxx.sh -s &
