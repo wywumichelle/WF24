@@ -21,7 +21,7 @@ Ref:
 https://esgf.github.io/esgf-user-support/user_guide.html
 
 ## 2. Combine different time slices into one
-/scripts/combine.sh
+./scripts/combine.sh
 
 It could be done easily using CDO (mergetime) or NCO (e.g., ncrcat).
 For example,
@@ -32,14 +32,12 @@ cdo mergetime pr_Amon_UKESM1-0-LL_historical_r1i1p1f2_gn_185001-194912.nc \
 
 ```
 
-
-
 ## 3. Regrid to common coordinate
 
 To regrid different resolution in to 1x1 degree resolution, here I use two-step cdo commands:
 
 ###1. Generate weighting files by assign the regrid method and the resolution
-/scripts/genwgt.sh
+./scripts/genwgt.sh
 
 I use nearest interpolation for precipitation, bi-linear for other  variables
 ```
@@ -47,16 +45,15 @@ cdo -O -L gennn,global_1 $infile ${vars}_${model}_weights.nc
 cdo -O -L genbil,global_1 $infile $outweightfile
 ```
 ###2. Regrid the files according to the weight files, and select the timeframe
-/scripts/seldate_remap.sh
+./scripts/seldate_remap.sh
 ```
 cdo -O -L remap,global_1,./${vars}_${model}_weights.nc -seldate,18500101,20141231 $infile $outfile
 ```
 
 ## 4. Ensemble average
-/scripts/ensmean.sh
+./scripts/ensmean.sh
 Some models have multiple ensemble members (r*i*p*f*). Here I average all the ensemble member into one ensemble average.
 ```
 cdo ensmean $infiles $outfile
 ```
 
-###### The smallest heading
