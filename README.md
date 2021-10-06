@@ -56,4 +56,12 @@ Some models have multiple ensemble members (r*i*p*f*). Here I average all the en
 ```
 cdo ensmean $infiles $outfile
 ```
+### Masking the State
+Input: one of any netCDF generated in above proccess(1-degree coordinate)
+Input: Polygon of Texas State
+Output: 1-degree 0-1 mask (if the center of gridcell is inside the polygon)
+
+Scripts: ./mask/mask_Texas_global-1.ncl
+Ouput:./mask/StateTexas_global-1.nc
+Figure: ./mask/mask_StateTexas_global-1.png
 
