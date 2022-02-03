@@ -3,8 +3,8 @@
 #SBATCH -o cdo_genwgt.o%j        # output and error file name (%j expands to jobID)
 #SBATCH -N 2               # number of nodes requested
 #SBATCH -n 48              # total number of mpi tasks requested
-#SBATCH -p development      # queue (partition) -- normal, development, etc.
-#SBATCH -t 00:05:00         # run time (hh:mm:ss) - 1.5 hours
+#SBATCH -p normal     # queue (partition) -- normal, development, etc.
+#SBATCH -t 00:20:00         # run time (hh:mm:ss) - 1.5 hours
 #SBATCH -A A-go3
 
 #===================
@@ -15,7 +15,8 @@
 #==================
 
 
-exp="historical"
+exp="ssp126"
+mkdir wgt
 for vars in tas pr ; do
 
   indir="$SCRATCH/CMIP6/mon/${exp}_${vars}/combine/"
@@ -24,9 +25,9 @@ for vars in tas pr ; do
 
   while IFS= read -r model; do
 
-    infiles="${vars}_Amon_${model}_${exp}_*_*_185001-*.nc"
+    infiles="${vars}_Amon_${model}_${exp}_*.nc"
     infile=$( ls ${indir}${infiles} | sed -n '1p' )
-    outfile="./${vars}_${model}_weights.nc"
+    outfile="./wgt/${vars}_${model}_weights.nc"
 
     echo "$infile -> $outfile"
 
