@@ -1,0 +1,44 @@
+﻿CP_ID,Description,USGS Gage No.,"WAM Contributing Drainage Area, sq.mi.",Next Downstream WAM Control Point
+A3,Colorado River near Ira,08119500,"1,074",A1
+A2,Deep Creek near Dunn,08120500,193,A1
+A1,Colorado River at Colorado City,08121000,"1,575",B2
+B4,Champion Creek Reservoir near Colorado City,08123600,176,B2
+B3,Beals Creek near Westbrook,08123800,"1,974",B2
+B2,Colorado River above Silver,08123850,"4,559",B1
+B1,Colorado River at Robert Lee,08124000,"5,046",D4
+C7,North Concho River near Carlsbad,08134000,"1,202",C2
+C6,Middle Concho River above Tankersley,08128400,"1,613",C2
+C5,Spring Creek above Tankersley ,08129300,340,C2
+C4,Dove Creek at Knickerbocker,08130500,164,C2
+C3,South Concho River at Christoval,08128000,258,C2
+C2,Concho River at San Angelo,08136000,"4,139",C1
+C1,Concho River at Paint Rock,08136500,"5,185",D2
+D4,Colorado River near Ballinger,08126380,"6,090",D2
+D3,Elm Creek at Ballinger,08127000,464,D2
+D2,Colorado River near Stacy,08136700,"12,548",D1
+D1,Colorado River at Winchell,08138000,"13,788",F1
+E4,San Saba River at Menard,08144500,"1,137",E3
+E3,San Saba River near Brady,08144600,"1,636",E1
+E2,Brady Creek at Brady,08145000,589,E1
+E1,San Saba River at San Saba,08146000,"3,048",F1
+F3,Pecan Bayou at Brownwood,08143500,"1,654",F2
+F2,Pecan Bayou near Mullin,08143600,"2,074",F1
+F1,Colorado River near San Saba,08147000,"19,830",I4
+G5,North Llano River near Junction,08148500,897,G4
+G4,Llano River near Junction,08150000,"1,859",G3
+G3,Llano River near Mason,08150700,"3,251",G1
+G2,Beaver Creek near Mason,08150800,215,G1
+G1,Llano River at Llano,08151500,"4,201",I2
+H2,Pedernales River near Fredericksburg,08152900,370,H1
+H1,Pedernales River near Johnson City,08153500,901,I2
+I4,Lake Buchanan near Burnet,08148000,"20,521",I2
+I3,Sandy Creek near Kingsland,08152000,346,I2
+I2,Lake Travis near Austin,08154500,"27,357",I1
+I1,Colorado River at Austin,08158000,"27,606",J3
+J5,Onion Creek at Driftwood,08158700,124,J4
+J4,Onion Creek at US Hwy 183,08159000,321,J3
+J3,Colorado River at Bastrop,08159200,"28,576",J2
+J2,Colorado River at Smithville,08159500,"28,968",J1
+J1,Colorado River at Columbus,08161000,"30,327",K2
+K2,Colorado River at Wharton,08162000,"30,600",K1
+K1,Colorado River at Baycity,08162500,"30,837",outlet
