@@ -50,25 +50,29 @@ ax1= plt.subplot(gs[0,0:2])
 bins_list[1] = 1
 bins_list[1] = 1
 ax1.plot(y)
-
+ax1.set_title("Timeseries")
 # second plot: annual cycle
 ax2= plt.subplot(gs[0,2])
 ax2.plot(y_cycle)
-
+ax2.set_title("Annual Cycle")
 ## third plot: count of zero streamflow
 ax3= plt.subplot(gs[1,0])
 ax3.bar(0,y_num_zero)
+ax3.set_title("Count of zero flow")
 
 ## 4th plot: log space PDF
 ax4= plt.subplot(gs[1,1])
 ax4.plot(bin_edges[1:],pdf)
 ax4.set_xscale('log')
+ax4.set_title("PDF")
 
 ## 5th plot: log space CDF
 ax5 = plt.subplot(gs[1,2])
 ax5.plot(bin_edges[1:],cdf)
 ax5.set_xscale('log')
+ax5.set_title("CDF")
 
+fig.suptitle("D1 Colorado River at Winchell", fontweight ="bold")
 
 plt.savefig('test.pdf')
 
