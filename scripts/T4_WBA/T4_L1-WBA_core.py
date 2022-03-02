@@ -10,22 +10,22 @@ import xarray as xr
 import pandas as pd
 
 ## assign input and output directory
-csv_in_path = "./"
+csv_in_path = "./data/input/"
 nc_in_path = "/scratch/04380/wenying/CMIP6/T4_WBA/input/"
-out_path = "/scratch/04380/wenying/CMIP6/T4_WBA/output/"
+out_path = "./data/output/"
 
 ## read in Watersheds-grids information
-df_id = pd.read_csv('./Dissolved_Watersheds_on_Grids.csv')
+df_id = pd.read_csv(csv_in_path +'Dissolved_Watersheds_on_Grids.csv')
 
-all_Quad_ID  = df_id.TX_QUAD_ID
+#all_Quad_ID  = df_id.TX_QUAD_ID
 all_Quad_lat = np.array(df_id.lat)
 all_Quad_lon = np.array(df_id.lon)
 all_CP_ID    = df_id.CP_ID
-#CP_ID: A1..K2 (K1=outlet)
 all_poly_area= np.array(df_id.Area_sqkm)
+#CP_ID: A1..K2 (K1=outlet)
 
-## read in Watersheds information
-df_ws = pd.read_csv('./WAM_control_point_name.csv')
+## read in Watersheds information; use the order of gagues in this file
+df_ws = pd.read_csv(csv_in_path + 'WAM_control_point_name.csv')
 df_ws = df_ws.sort_values(by=["CP_ID"], ascending=True)
 df_ws = df_ws.reset_index(drop=True)
 CP_ID    = df_ws.CP_ID
@@ -34,7 +34,7 @@ CP_ID    = df_ws.CP_ID
 
 for file in sorted(os.listdir(nc_in_path)):
 
-    if fnmatch.fnmatch(file, '*historical*-1-n*.nc'):
+    if fnmatch.fnmatch(file, '*global-1-n*.nc'):
 
         file_items=file.split('_')
 
@@ -46,7 +46,7 @@ for file in sorted(os.listdir(nc_in_path)):
         data  =  xr.open_dataset(nc_in_path+"/"+file)
         out_path="./"
         ## prepare output CSV files
-        outfile="T4_NCP_Flows_mon"+model_name+"_"+scenario_name+".csv"
+        outfile="T4_NCP_Flows_L1_mon_"+model_name+"_"+scenario_name+".csv"
         outlist= {'Year': data["time.year"],'Month': data["time.month"]}
         
         ## Q = R*A
@@ -81,7 +81,7 @@ for file in sorted(os.listdir(nc_in_path)):
         #  print(ID+":"+str(Q_sum_avg.values))
           outlist[ID] = Q_sum
         
-        print(ID+":"+str(Q_sum_avg.values))
+        print(model_name+"_"+scenario_name+"_"+ID+" avg:"+str(Q_sum_avg.values))
         
         #convert to dataframe for writing csv
         subdata=pd.DataFrame(outlist)
