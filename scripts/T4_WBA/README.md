@@ -13,13 +13,17 @@ Negative runoff is mannualy replace by zero firstly.
 Output: ./data/output/T4_NCP_Flows_L1_mon_ACCESS-CM2_historical.csv
 
 ![plot](./fig/T4_L1_Compare_K1.pdf)
+
+
 ![plot](./fig/T4_L1_NF_K1.pdf)
 
 ## Level2
 Here I tried to applied a CDF matching. I borrowed the code from 
 https://soilwater.github.io/pynotes-agriscience/notebooks/cdf_matching.html
 
-But I found it is might not be used for streamflow.
+But I found it is not that good for streamflow correction.
+Becuase streamflow has very large variance.
+It sometime results in very high bias corrected flow.
 I still share the figure/output here, but not the code.
 
 Output: ./data/output/T4_NCP_Flow_L2_mon_ACCESS-CM2_historical.csv
